@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
+import s from './Styles.module.css';
 
 
 const Filter = ({ value, onChangeFilter }) => {
   return (
-    <div >
-      <label htmlFor="filter">
+    <div className={s.form}>
+      <label className={s.text} htmlFor="filter">
         Find contacts by name
         <input
+          className={s.input}
           type="text"
           name="filter"
+          placeholder="Search"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           value={value}
           onChange={onChangeFilter}

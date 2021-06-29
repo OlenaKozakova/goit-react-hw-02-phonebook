@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
+import s from './App.module.css';
 import Form from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import Filter from './components/Filter';
@@ -68,9 +69,9 @@ class App extends Component {
     const filteredContact = this.filterContact(); {
       return (
         <div>
-          <h1>Phonebook</h1>
+          <h1 className={s.title}>Phonebook</h1>
           <Form onSubmit={this.duplicateContactCheck} />
-          <h2>Contacts</h2>
+          <h2 className={s.text}>Contacts</h2>
           <Filter onChangeFilter={this.onChangeFilter} value={filter} />
           <ContactList filteredContact={filteredContact}
             onDeleteContact={this.deleteContact}

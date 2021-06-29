@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import s from './Styles.module.css';
 
 
  const INITIAL_STATE = {
@@ -30,12 +31,14 @@ handleChange = (event) => {
     render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor='name'>
+        <form className={s.form} onSubmit={this.handleSubmit}>
+          <label className={s.text} htmlFor='name'>
             Name
             <input
+              className={s.input}
               type="text"
               name="name"
+              placeholder="Your name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
               required
@@ -43,11 +46,13 @@ handleChange = (event) => {
               onChange={this.handleChange}
             />
           </label>
-           <label>
+           <label  className={s.text} >
           Number
-          <input
+            <input
+               className={s.input}
             type="tel"
-            name="number"
+              name="number"
+              placeholder="+38-000-000-00-00"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
@@ -55,7 +60,7 @@ handleChange = (event) => {
             onChange={this.handleChange}
             />
             </label>
-        <button type="submit">Add contact</button>
+        <button className={s.button} type="submit">Add contact</button>
             </form>
       </div>
     );
